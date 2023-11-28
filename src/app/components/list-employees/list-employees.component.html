@@ -1,0 +1,36 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-body">
+      <h3 class="h3">Listado de empleados</h3>
+      <button class="btn btn-dark btn-lg float-end" routerLink="/create-employee">Agregar</button>
+      <table *ngIf="employees.length > 0 else elseBlock" aria-describedby="employees" class="table table-striped table-hover mt-4">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Documento</th>
+            <th>Salario</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees">
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.last_name }}</td>
+            <td>{{ employee.id_document }}</td>
+            <td>{{ employee.salary | currency }}</td>
+            <td>
+              <i class="fa-regular fa-pen-to-square fa-lg text-info me-2" [routerLink]="['/edit-employee/', employee.id]"></i>
+              <i class="fa-regular fa-trash-can fa-lg text-danger" (click)="deleteEmploye(employee)"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ng-template #elseBlock>
+        <p>No hay empleados..</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
+

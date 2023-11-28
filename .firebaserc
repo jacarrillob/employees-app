@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "employees-53652": {
+      "hosting": {
+        "employees-application": [
+          "employees-53652"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "employees-53652"
+  }
+}

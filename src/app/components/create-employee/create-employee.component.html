@@ -1,0 +1,69 @@
+<div class="container pt-4">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h3>Agregar Empleado</h3>
+          <div *ngIf="loading" class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <span *ngIf="submited && createEmployee.invalid" class="badge bg-danger">TODOS LOS CAMPOS SON REQUERIDOS</span>
+          <form class="mt-4" [formGroup]="createEmployee" (ngSubmit)="addEmployee()">
+            <div class="row">
+              <div class="col">
+                <label for="name">Nombre</label>
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control form-control-lg"
+                  placeholder="Ingresa nombre..."
+                  formControlName="name"
+                >
+              </div>
+              <div class="col">
+                <label for="lastname">Apellido</label>
+                <input
+                  type="text"
+                  id="lastname"
+                  class="form-control form-control-lg"
+                  placeholder="Ingresa apellido..."
+                  formControlName="last_name"
+                >
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="document">Documento</label>
+                <input
+                  type="text"
+                  id="document"
+                  class="form-control form-control-lg"
+                  placeholder="Número documento..."
+                  formControlName="id_document"
+                >
+              </div>
+              <div class="col">
+                <label for="salary">Salario</label>
+                <input
+                  type="number"
+                  id="salary"
+                  class="form-control form-control-lg"
+                  placeholder="Ingresa salario..."
+                  formControlName="salary"
+                >
+              </div>
+            </div>
+            <div class="d-flex justify-content-center mt-4">
+              <button type="text" class="btn btn-secondary btn-lg me-3" routerLink="/list-employees">
+                Volver
+              </button>
+              <button type="submit" class="btn btn-dark btn-lg">
+                Agregar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
